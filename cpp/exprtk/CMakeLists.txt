@@ -218,7 +218,7 @@ set(CMAKE_EXE_LINKER_FLAGS  "${CMAKE_EXE_LINKER_FLAGS} \
     -s EXPORTED_FUNCTIONS=\"['_main']\" \
 ")
 
-add_library(exprtkjs ${WASM_SOURCE_FILES})
+add_library(exprtkjs ${SOURCE_FILES})
 target_compile_definitions(exprtkjs PRIVATE EXPRTKJS_ENABLE_WASM=1)
 set_target_properties(exprtkjs PROPERTIES COMPILE_FLAGS "")
 

@@ -15,7 +15,7 @@
   "scripts": {
     "postinstall": "node scripts/install_emsdk.js",
     "build": "npm-run-all build:*",
-    "build:cpp": "node cpp/exprtk/build.js",
+    "build:cpp": "node scripts/run_emsdk.js node cpp/exprtk/build.js",
     "fix": "yarn lint --fix",
     "lint": "eslint --ext js src/",
     "test": "node scripts/test.js",
