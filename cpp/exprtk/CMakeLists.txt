@@ -194,7 +194,6 @@ endif()
 
 set (SOURCE_FILES
     ${EXPRTKJS_CPP_SRC}/src/cpp/base.cpp
-    ${EXPRTKJS_CPP_SRC}/src/cpp/binding.cpp
 )
 
 if (WIN32)
