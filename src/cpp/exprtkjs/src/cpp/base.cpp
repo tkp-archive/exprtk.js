@@ -6,22 +6,3 @@
  * the Apache License 2.0.  The full license can be found in the LICENSE file.
  *
  */
-
-#include <exprtk/emscripten.h>
-
-using namespace emscripten;
-
-/**
- * Main
- */
-int
-main(int argc, char** argv) {
-}
-
-/******************************************************************************
- *
- * Embind
- */
-
-EMSCRIPTEN_BINDINGS(exprtk) {
-}

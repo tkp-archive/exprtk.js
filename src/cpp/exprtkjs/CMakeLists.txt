@@ -7,7 +7,7 @@ set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 if(NOT DEFINED EXPRTKJS_CMAKE_MODULE_PATH)
-	set(EXPRTKJS_CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/../../cmake/")
+	set(EXPRTKJS_CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/../../../cmake/")
 endif()
 set(CMAKE_MODULE_PATH "${EXPRTKJS_CMAKE_MODULE_PATH}/modules" ${CMAKE_MODULE_PATH})
 
@@ -211,7 +211,7 @@ set(CMAKE_EXE_LINKER_FLAGS  "${CMAKE_EXE_LINKER_FLAGS} \
     -s NO_FILESYSTEM=1 \
     -s ALLOW_MEMORY_GROWTH=1 \
     -s MODULARIZE=1 \
-    -s EXPORT_NAME=\"load_perspective\" \
+    -s EXPORT_NAME=\"load_exprtkjs\" \
     -s MAXIMUM_MEMORY=4gb \
     -s USE_ES6_IMPORT_META=0 \
     -s EXPORTED_FUNCTIONS=\"['_main']\" \
@@ -222,17 +222,17 @@ target_compile_definitions(exprtkjs PRIVATE EXPRTKJS_ENABLE_WASM=1)
 set_target_properties(exprtkjs PROPERTIES COMPILE_FLAGS "")
 
 # "esm/erspective.cpp.js" from CMAKE_EXECUTABLE_SYNTAX
-add_executable(perspective_esm src/cpp/emscripten.cpp)
-target_link_libraries(perspective_esm exprtkjs)
-target_link_options(perspective_esm PRIVATE -s ENVIRONMENT=worker)
-target_compile_definitions(perspective_esm PRIVATE EXPRTKJS_ENABLE_WASM=1)
-set_target_properties(perspective_esm PROPERTIES RUNTIME_OUTPUT_DIRECTORY "./esm/")
-set_target_properties(perspective_esm PROPERTIES OUTPUT_NAME "perspective.cpp")
+add_executable(exprtkjs_esm src/cpp/emscripten.cpp)
+target_link_libraries(exprtkjs_esm exprtkjs)
+target_link_options(exprtkjs_esm PRIVATE -s ENVIRONMENT=worker)
+target_compile_definitions(exprtkjs_esm PRIVATE EXPRTKJS_ENABLE_WASM=1)
+set_target_properties(exprtkjs_esm PROPERTIES RUNTIME_OUTPUT_DIRECTORY "./esm/")
+set_target_properties(exprtkjs_esm PROPERTIES OUTPUT_NAME "exprtkjs.cpp")
 
-# "cjs/perspective.cpp.js" from CMAKE_EXECUTABLE_SYNTAX
-add_executable(perspective_cjs src/cpp/emscripten.cpp)
-target_link_libraries(perspective_cjs exprtkjs)
-target_link_options(perspective_cjs PRIVATE -s ENVIRONMENT=node)
-target_compile_definitions(perspective_cjs PRIVATE EXPRTKJS_ENABLE_WASM=1)
-set_target_properties(perspective_cjs PROPERTIES RUNTIME_OUTPUT_DIRECTORY "./cjs/")
-set_target_properties(perspective_cjs PROPERTIES OUTPUT_NAME "perspective.cpp")
+# "cjs/exprtkjs.cpp.js" from CMAKE_EXECUTABLE_SYNTAX
+add_executable(exprtkjs_cjs src/cpp/emscripten.cpp)
+target_link_libraries(exprtkjs_cjs exprtkjs)
+target_link_options(exprtkjs_cjs PRIVATE -s ENVIRONMENT=node)
+target_compile_definitions(exprtkjs_cjs PRIVATE EXPRTKJS_ENABLE_WASM=1)
+set_target_properties(exprtkjs_cjs PROPERTIES RUNTIME_OUTPUT_DIRECTORY "./cjs/")
+set_target_properties(exprtkjs_cjs PROPERTIES OUTPUT_NAME "exprtkjs.cpp")

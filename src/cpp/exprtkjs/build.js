@@ -1,3 +1,12 @@
+/******************************************************************************
+ *
+ * Copyright (c) 2021, the exprtk.js Authors.
+ *
+ * This file is part of the exprtk.js library, distributed under the terms of
+ * the Apache License 2.0.  The full license can be found in the LICENSE file.
+ *
+ */
+
 const {execSync} = require("child_process");
 const os = require("os");
 const path = require("path");
@@ -15,7 +24,7 @@ try {
         cwd,
         stdio,
     });
-    execSync(`emmake make -j${os.cpus().length}`, {
+    execSync(`emmake make -j${os.cpus().length/2}`, {
         cwd,
         stdio,
     });
