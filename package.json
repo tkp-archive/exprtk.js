@@ -5,7 +5,7 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/iexcloud/exprtk.js"
+    "url": "https://github.com/timkpaine/exprtk.js"
   },
   "license": "Apache-2.0",
   "emscripten": "2.0.29",
@@ -14,7 +14,7 @@
   },
   "exports": {
     ".": {
-        "node": "./dist/cjs/perspective.node.js"
+        "node": "./dist/cjs/exprtk.node.js"
     },
     "./dist/": "./dist/",
     "./cjs/": "./dist/cjs/",
